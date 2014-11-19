@@ -20,6 +20,9 @@
 class Book < ActiveRecord::Base
   belongs_to :editorial
 
+  has_many :authorings
+  has_many :authors, :through => :authorings
+
   validates :title, :author, :editorial, :presence => true
   validates :edition, :publication_year, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
