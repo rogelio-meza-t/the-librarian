@@ -7,7 +7,7 @@
     <dt><%=t('activerecord.attributes.book.author') %></dt>
     <dd><%=@book.author || '-' %></dd>
     <dt><%=t('activerecord.attributes.book.editorial') %></dt>
-    <dd><%=@book.editorial || '-' %></dd>
+    <dd><%=@book.editorial.name || '-' %></dd>
     <dt><%=t('activerecord.attributes.book.original_title') %></dt>
     <dd><%=@book.original_title || '-' %></dd>
     <dt><%=t('activerecord.attributes.book.translation') %></dt>

@@ -1,4 +1,5 @@
 class EditorialsController < ApplicationController
+  respond_to :html
   before_action :set_editorial, only: [:show, :edit, :update, :destroy]
 
   def index
