@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :editorials
+
   resources :books
 
   get 'home/index'

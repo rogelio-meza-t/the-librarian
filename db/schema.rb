@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119155658) do
+ActiveRecord::Schema.define(version: 20141119170607) do
 
   create_table "books", force: true do |t|
     t.string   "title",              null: false
     t.string   "author",             null: false
-    t.string   "editorial",          null: false
     t.string   "original_title"
     t.string   "translation"
     t.integer  "edition"
@@ -30,7 +29,14 @@ ActiveRecord::Schema.define(version: 20141119155658) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.integer  "editorial_id"
   end
+
+  create_table "editorials", force: true do |t|
+    t.string "name", default: "", null: false
+  end
+
+  add_index "editorials", ["name"], name: "index_editorials_on_name", unique: true
 
   create_table "users", force: true do |t|
     t.string   "email",              default: "", null: false
