@@ -22,11 +22,12 @@
     <dd><%=@book.publication_year || '-' %></dd>
     <dt><%=t('activerecord.attributes.book.isbn') %></dt>
     <dd><%=@book.isbn || '-' %></dd>
+    <dt><%=t('activerecord.attributes.book.cover') %></dt>
+    <dd><%=image_tag @book.cover.url(:thumb) %></dd>
   </dl>
   <div class="row">
-    <div class="col-sm-offset-1 col-sm-11">      
+    <div class="col-sm-offset-1 col-sm-11">
       <%= link_to 'Editar', edit_book_path(@book), class: 'btn btn-primary' %>
       <%= link_to 'Volver', books_path, class: 'btn btn-default' %>
     </div>
   </div>
-

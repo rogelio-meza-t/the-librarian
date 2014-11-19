@@ -50,7 +50,7 @@ group :development do
   gem 'binding_of_caller'
   # assets en consola: por que no te callas!
   gem 'quiet_assets'
-  
+
   # gema para la documentacion de modelos
   gem 'annotate'
 end
@@ -64,3 +64,5 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# new gems
+gem "paperclip", "~> 4.2"
