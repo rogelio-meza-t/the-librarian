@@ -104,6 +104,14 @@
   <div class="row">
     <div class="form-group">
       <div class="col-sm-offset-3 col-sm-9">
+        <%= image_tag @book.cover.url(:medium) %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
         <button type="submit" class="btn btn-primary" name="commit">Actualizar Libro</button>
       </div>
     </div>

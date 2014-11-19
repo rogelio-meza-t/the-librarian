@@ -1,6 +1,6 @@
 # basado en https://github.com/svenfuchs/rails-i18n/blob/master/rails/locale/es-CL.yml
 es:
-  
+
   activerecord:
     models:
       book: Libro
@@ -20,7 +20,8 @@ es:
         edition_place: Lugar de edición
         publication_year: Año de publicación
         isbn: ISBN
-  
+        cover: Foto Portada
+
   date:
     abbr_day_names:
     - dom
