@@ -1,4 +1,6 @@
-<%= form_for(@book) do |f| %>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+<%= form_for @book, html: {class: 'form-horizontal'} do |f| %>
   <% if @book.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h2>
@@ -10,48 +12,91 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :title, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :author, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :author, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :author %><br>
-    <%= f.text_field :author %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :editorial, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :editorial, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :editorial %><br>
-    <%= f.text_field :editorial %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :original_title, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :original_title, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :original_title %><br>
-    <%= f.text_field :original_title %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :translation, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :translation, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :translation %><br>
-    <%= f.text_field :translation %>
+
+  <div class="row">
+      <div class="form-group">
+        <%= f.label :edition, class: "col-sm-3 control-label" %>
+        <div class="col-sm-2">
+          <%= f.number_field :edition, class: "form-control" %>
+        </div>
+        <%= f.label :edition_date, class: "col-sm-3 control-label" %>
+        <div class="col-sm-4 text-right">
+          <%= f.date_select :edition_date, class: "form-control" %>
+        </div>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :edition %><br>
-    <%= f.number_field :edition %>
+
+  <div class="row">
+    <div class="form-group">
+      <%= f.label :edition_place, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :edition_place, class: "form-control" %>
+      </div>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :edition_date %><br>
-    <%= f.date_select :edition_date %>
+
+  <div class="row">
+      <div class="form-group">
+        <%= f.label :publication_year, class: "col-sm-3 control-label" %>
+        <div class="col-sm-2">
+          <%= f.number_field :publication_year, class: "form-control" %>
+        </div>
+        <%= f.label :isbn, class: "col-sm-3 control-label" %>
+        <div class="col-sm-4 text-right">
+          <%= f.text_field :isbn, class: "form-control" %>
+        </div>
+      </div>
   </div>
-  <div class="field">
-    <%= f.label :edition_place %><br>
-    <%= f.text_field :edition_place %>
-  </div>
-  <div class="field">
-    <%= f.label :publication_year %><br>
-    <%= f.number_field :publication_year %>
-  </div>
-  <div class="field">
-    <%= f.label :isbn %><br>
-    <%= f.text_field :isbn %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="row">
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-9">
+        <button type="submit" class="btn btn-primary" name="commit">Actualizar Libro</button>
+      </div>
+    </div>
   </div>
 <% end %>
