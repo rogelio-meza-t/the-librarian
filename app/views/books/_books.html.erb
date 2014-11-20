@@ -1,11 +1,11 @@
-<%= search_form_for @search do |f| %>
-  <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
-
-
-  <%= f.submit %>
+<%= search_form_for @search, html: {class: 'form-inline'} do |f| %>
+  <div class="form-group">
+    <%= f.label :title_cont, "Buscar título" %>
+    <%= f.search_field :title_cont, class: "form-control" %>
+  </div>
+  <%= f.submit :class => "btn btn-default" %>
 <% end %>
-
+<hr>
 <div id="books" class="responsive-fake-table expansible-fake-table">
   <header class="row">
     <div class="col col-xs-5 col-sm-4 col-md-3">
