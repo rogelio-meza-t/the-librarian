@@ -22,8 +22,9 @@ class Book < ActiveRecord::Base
 
   has_many :authorings
   has_many :authors, :through => :authorings
+  accepts_nested_attributes_for :authors
 
-  validates :title, :author, :editorial, :presence => true
+  validates :title, :presence => true
   validates :edition, :publication_year, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   #paperclip
