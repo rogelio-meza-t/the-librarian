@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
   respond_to :html
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :clear_search_index, only: [:index]
 
   def index
-    @books = Book.order("created_at").last(10)
+    @search = Book.search(search_params)
+    @search.sorts = 'name' if @search.sorts.empty?
+    @books = @search.result().page(params[:page])
     respond_with(@books)
   end
 
@@ -59,5 +62,20 @@ class BooksController < ApplicationController
 
     def book_params
       params.require(:book).permit(:title, :author, :original_title, :translation, :edition, :edition_date, :edition_place, :publication_year, :isbn, :cover, :editorial_id)
+    end
+
+    def search_params
+      params[:q]
+    end
+
+    def clear_search_index
+      if params[:search_cancel]
+        params.delete(:search_cancel)
+        if(!search_params.nil?)
+          search_params.each do |key, param|
+            search_params[key] = nil
+          end
+        end
+      end
     end
 end

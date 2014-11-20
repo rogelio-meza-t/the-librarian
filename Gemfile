@@ -67,3 +67,6 @@ end
 # new gems
 gem "paperclip", "~> 4.2"
 gem "cocoon"
+gem 'kaminari'
+gem 'kaminari-bootstrap'
+gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
