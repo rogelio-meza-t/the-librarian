@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require_tree .
 //= require cocoon
+
+$('#books').html('<%= escape_javascript(render("books")) %>');
