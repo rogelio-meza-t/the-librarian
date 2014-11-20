@@ -31,5 +31,9 @@ class Book < ActiveRecord::Base
   has_attached_file :cover, :styles => { :medium => "300x300>", :thumb => "100x100#", :mini => "30x30#" }, :default_url => "missing_:style.jpeg"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
 
+  def authors_list
+    authors.map(&:name).join(", ")
+  end
+
 
 end
