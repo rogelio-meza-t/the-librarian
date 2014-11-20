@@ -23,9 +23,14 @@
 
   <div class="row">
     <div class="form-group">
-      <%= f.label :author, class: "col-sm-3 control-label" %>
+      <%= f.label :authors, class: "col-sm-3 control-label" %>
       <div class="col-sm-9">
-        <%= f.text_field :author, class: "form-control" %>
+        <%= f.fields_for :authors do |author|%>
+          <% render 'author_fields', :f => author %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'Agregar autor', f, :authors%>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +40,6 @@
       <%= f.label :editorial, class: "col-sm-3 control-label" %>
       <div class="col-sm-9">
         <%= f.select :editorial_id, options_for_select(Editorial.all.map{|s|[s.name, s.id]}, (@book.editorial) ? @book.editorial.id : 1),class: "form-control" %>
-        <%= link_to 'Nueva Editorial', editorials_path %>
       </div>
     </div>
   </div>

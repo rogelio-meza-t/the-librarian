@@ -66,3 +66,4 @@ end
 
 # new gems
 gem "paperclip", "~> 4.2"
+gem "cocoon"

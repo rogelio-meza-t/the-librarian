@@ -20,12 +20,20 @@
 class Book < ActiveRecord::Base
   belongs_to :editorial
 
-  validates :title, :author, :editorial, :presence => true
+  has_many :authorings
+  has_many :authors, :through => :authorings
+  accepts_nested_attributes_for :authors
+
+  validates :title, :presence => true
   validates :edition, :publication_year, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
 
   #paperclip
   has_attached_file :cover, :styles => { :medium => "300x300>", :thumb => "100x100#", :mini => "30x30#" }, :default_url => "missing_:style.jpeg"
   validates_attachment_content_type :cover, :content_type => /\Aimage\/.*\Z/
+
+  def authors_list
+    authors.map(&:name).join(", ")
+  end
 
 
 end
