@@ -24,11 +24,20 @@
             </button>
             <%= link_to 'La biblio', root_path, class: 'navbar-brand'%>
           </div>
-          
+
           <div class="collapse navbar-collapse" id="main-navbar-collapsible-at-xs">
-            
-            
-            
+            <ul class="nav navbar-nav">
+              <li>
+                <%= link_to "Libros", books_path%>
+              </li>
+              <li>
+                <%= link_to "Autores", authors_path%>
+              </li>
+              <li>
+                <%= link_to "Editoriales", editorials_path%>
+              </li>
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
               <li>
                 <%=link_to destroy_user_session_path, :method => :delete do %>
@@ -41,7 +50,7 @@
       </nav>
     </header>
   <% end %>
-  
+
   <div class="container">
     <% if notice.present? %>
       <div class="alert alert-info alert-dismissible" role="alert">

@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  respond_to :html
   before_action :set_author, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -40,7 +40,6 @@
       <%= f.label :editorial, class: "col-sm-3 control-label" %>
       <div class="col-sm-9">
         <%= f.select :editorial_id, options_for_select(Editorial.all.map{|s|[s.name, s.id]}, (@book.editorial) ? @book.editorial.id : 1),class: "form-control" %>
-        <%= link_to 'Nueva Editorial', editorials_path %>
       </div>
     </div>
   </div>
